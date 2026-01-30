@@ -1,6 +1,8 @@
 # ROS TF example
 
-TODO: INSERT SOME COOL IMAGE OR VIDEO
+<video width="100%" autoplay loop muted controls>
+    <source src="https://static.rerun.io/749da3520d9d6bd2b8f5f73d878f4428780f5130_ros_tf_example.mp4" type="video/mp4" />
+</video>
 
 ## Used Rerun types
 
@@ -40,7 +42,7 @@ We assume you are running all commands within the `ros_tf_example` repository fo
 
 #### 1. Download dataset
 
-Download the ROS 1 bag file (`leaf-2022-03-18-gyor.bag`) from the [JKK Research Center](https://jkk-research.github.io/dataset/jkk_dataset_01/):
+Download the ROS 1 bag file (`leaf-2022-03-18-gyor.bag`) from the [JKK Research Center](https://jkk-research.github.io/dataset/jkk_dataset_01/) or using `wget`:
 
 ```sh
 wget https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EVlk6YgDtj9BrzIE8djt-rwBZ47q9NwcbgxU_zOuBji9IA?download=1 -O leaf-2022-03-18-gyor.bag
@@ -58,13 +60,7 @@ pixi run rosbags-convert --dst-storage mcap --src leaf-2022-03-18-gyor.bag --dst
 
 **NOTE**: `pixi run` in the above command means that we are running the `rosbags-convert` command inside the Pixi environment where we have installed the [Rosbags](https://ternaris.gitlab.io/rosbags/) library.
 
-This creates a folder `leaf-2022-03-18-gyor` containing the `leaf-2022-03-18-gyor.mcap` file. You can now visualize it:
-
-```sh
-pixi run rerun leaf-2022-03-18-gyor/leaf-2022-03-18-gyor.mcap
-```
-
-or drag the file into Rerun.
+This creates a folder `leaf-2022-03-18-gyor` containing the `leaf-2022-03-18-gyor.mcap` file.
 
 #### 3. Convert to RRD
 
@@ -197,7 +193,7 @@ Another source of error can be that the frame in which a message is logged may n
 
 We can see that the frame in which the top entity path `/zed_node/left/camera_info` is possible under, called `zed1_left_camera_optical_frame` does not exist in the frame pairs that we printed before. There is no general way for how to solve this, as it depends on your data and setup. In this case, we will replace `zed1_left_camera_optical_frame` with `zed_camera_front`, which exists as we saw above. Look for `zed_camera_front` in the `ros_tf_example/__main__.py` to see where we do that.
 
-NOTE: to see an entity's coordinate frame over time, you can use the time/bottom panel in the viewer and however your mouse over the `CoordinateFrame:Frame` component, see image below:
+> NOTE: to see an entity's coordinate frame over time, you can use the time/bottom panel in the viewer and however your mouse over the `CoordinateFrame:Frame` component, see image below:
 
 ![alt text](media/time_panel_coordinate_frame.png)
 
@@ -252,3 +248,9 @@ With these arrows you will get something like:
 ![alt text](media/transform_arrows.png)
 
 Showing that most frames are connected to the `base_link`.
+
+### Extra
+
+In the viewer, it is possible to select a named transform as the `target frame` (i.e., the target reference frame for all transform within the view). For the top down 3D view, trying changing the `target frame` between `gps` and `gps_fix_rot`. You will see that, with `gps_fix_rot` the view is orientated the same as the map view, while `gps` will rotate when the vehicle rotates.
+
+![alt text](media/target_frame.png)

@@ -114,6 +114,7 @@ def log_transforms(dataset: rr.catalog.DatasetEntry) -> None:
                 vectors=[t],
                 labels=[f'{p} -> {c}'],
                 show_labels=False,
+                radii=[0.05],
             )
         )
 
@@ -134,6 +135,7 @@ def log_transforms(dataset: rr.catalog.DatasetEntry) -> None:
                     vectors=[t],
                     labels=[f'{p} -> {c}_fix_rot'],
                     show_labels=False,
+                    radii=[0.05],
                 )
             )
 
