@@ -5,7 +5,12 @@ requires-python = ">= 3.11"
 version = "1.0.0"
 readme = "README.md"
 dependencies = [
-    "rerun-sdk[datafusion]>=0.28.2",
+    "rerun-sdk[datafusion]>=0.29.0-rc.4",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "pyarrow",
+    "rosbags",
 ]
 
 [build-system]
@@ -25,6 +30,12 @@ platforms = [
 ros_tf_example = { path = ".", editable = true }
 
 [tool.pixi.tasks]
+example = { cmd = "python3 ros_tf_example" }
+tf_info = { cmd = "python3 ros_tf_example/tf_info.py" }
+
+[tool.pixi.dependencies]
+# quaternion = ">=2024.0.13,<2025"
+# rrd_info = { cmd = "python3 ros_tf_example/rrd_info.py" }
 
 [tool.ruff]
 line-length = 150
