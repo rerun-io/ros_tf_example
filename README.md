@@ -1,8 +1,8 @@
 # ROS TF example
 
-<video width="100%" autoplay loop muted controls>
-    <source src="https://static.rerun.io/749da3520d9d6bd2b8f5f73d878f4428780f5130_ros_tf_example.mp4" type="video/mp4" />
-</video>
+<picture>
+ <img src="media/ros_tf_example.gif" alt="">
+</picture>
 
 ## Used Rerun types
 
