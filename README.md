@@ -64,7 +64,7 @@ This creates a folder `leaf-2022-03-18-gyor` containing the `leaf-2022-03-18-gyo
 
 #### 3. Convert to RRD
 
-Altough, you can directly load the MCAP file into the Rerun viewer, we will convert it one step further into a native Rerun file (RRD). This is because during this conversion, it will take known ROS message types and turn them into Rerun archetypes. To do the MCAP to RRD conversion, run:
+Altough you can directly load the MCAP file into the Rerun viewer (with supported ROS message types turned into Rerun archetypes), we will convert it first into a Rerun file (RRD). This will allow us to manipulate the recording more easily in this tutorial.
 
 ```sh
 pixi run rerun mcap convert leaf-2022-03-18-gyor/leaf-2022-03-18-gyor.mcap -o leaf-2022-03-18-gyor.rrd
