@@ -1,3 +1,7 @@
+> [!WARNING]
+>
+> This example is archived. See our docs page on [Debugging Transform Trees](https://rerun.io/docs/concepts/logging-and-ingestion/transforms#debugging-transform-trees) for how you can debug TF visually and using agents directly within Rerun.
+
 # ROS TF example
 
 <picture>
